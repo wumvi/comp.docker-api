@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1079e2960e3faf53b01479d28670e0cf",
+    "packages": [
+        {
+            "name": "wumvi/lightweight-curl",
+            "version": "1.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wumvi/lightweight-curl.git",
+                "reference": "f5f2448e28aa37299f18a4cdbc4a2f367a01f9a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wumvi/lightweight-curl/zipball/f5f2448e28aa37299f18a4cdbc4a2f367a01f9a3",
+                "reference": "f5f2448e28aa37299f18a4cdbc4a2f367a01f9a3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LightweightCurl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kozlenko Vitaliy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "LightweightCurl Curl library",
+            "time": "2017-11-01T21:05:31+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

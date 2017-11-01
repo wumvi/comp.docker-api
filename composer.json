@@ -1,0 +1,22 @@
+{
+  "name": "wumvi/docker-api",
+  "description": "Docker Api",
+  "library": "library",
+  "autoload": {
+    "psr-4": {
+      "DockerApi\\": "src"
+    }
+  },
+  "require": {
+    "wumvi/lightweight-curl": "^1.0.15"
+  },
+  "require-dev": {
+  },
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Kozlenko Vitaliy",
+      "role": "Developer"
+    }
+  ]
+}
