@@ -1,7 +1,6 @@
 {
   "name": "wumvi/docker-api",
   "description": "Docker Api",
-  "library": "library",
   "autoload": {
     "psr-4": {
       "DockerApi\\": "src"

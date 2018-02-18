@@ -169,8 +169,6 @@ class Containers extends Common
 
         $response = $this->curl->call($request);
 
-        var_dump($response->getData(), $response->getHttpCode());
-
         if ($response->getHttpCode() !== 204) {
             throw new StartException($response->getData());
         }
