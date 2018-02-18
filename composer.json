@@ -7,7 +7,7 @@
     }
   },
   "require": {
-    "wumvi/lightweight-curl": "^1.0.15"
+    "wumvi/lightweight-curl": "^1.0.18"
   },
   "require-dev": {
   },
