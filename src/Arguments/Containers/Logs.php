@@ -12,6 +12,7 @@ class Logs
     private $since = 0;
     private $until = 0;
     private $name = '';
+    private $tail = 'all';
 
     /**
      * @return string
@@ -91,5 +92,21 @@ class Logs
     public function setUntil(int $until): void
     {
         $this->until = $until;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTail(): string
+    {
+        return $this->tail;
+    }
+
+    /**
+     * @param string $tail
+     */
+    public function setTail(string $tail): void
+    {
+        $this->tail = $tail;
     }
 }
