@@ -18,9 +18,9 @@ class CreateOptions extends Arguments
      */
     private $hostConfig = null;
 
-    public function __construct(bool $stdIn = false, bool $stdOut = true, bool $stdErr = true)
+    public function __construct(bool $stdIn = false, bool $stdOut = true, bool $stdErr = true, bool $tty = false)
     {
-        parent::__construct($stdIn, $stdOut, $stdErr);
+        parent::__construct($stdIn, $stdOut, $stdErr, $tty);
     }
 
     /**

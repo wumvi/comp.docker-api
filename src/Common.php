@@ -38,4 +38,15 @@ class Common
 
         return $request;
     }
+    
+    public function makeDeleteRequest(): Request
+    {
+        $request = new Request();
+        $request->setMethod(Request::METHOD_DELETE);
+        $request->setUnixSocket(self::UNIX_SOCKET_PATH);
+        $request->setHeaders(['Content-Type' => 'application/json',]);
+        $request->setTimeout(30);
+
+        return $request;
+    }
 }
