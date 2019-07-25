@@ -7,6 +7,8 @@ use DockerApi\Arguments\Containers\CreateOptions;
 use DockerApi\Exception\Containers\Create;
 use DockerApi\Exception\Containers\Inspect as InspectException;
 use DockerApi\Exception\Containers\Start as StartException;
+use DockerApi\Exception\Containers\Wait as WaitException;
+use DockerApi\Exception\Containers\Remove as RemoveException;
 use DockerApi\Exception\Containers\ListException;
 use DockerApi\Exception\Containers\Logs as LogsException;
 use DockerApi\Arguments\Containers\Logs as LogsArguments;
@@ -72,6 +74,7 @@ class Containers extends Common
             'AttachStdin' => $option->isStdIn(),
             'AttachStdout' => $option->isStdOut(),
             'AttachStderr' => $option->isStdOut(),
+            'Tty' => $option->isTty(),
         ];
 
         if ($option->getHostname()) {
@@ -102,6 +105,7 @@ class Containers extends Common
         }
 
         $data = json_encode($data);
+
         $request->setData($data);
 
         $response = $this->curl->call($request);
@@ -141,6 +145,7 @@ class Containers extends Common
             $params['stderr'] = $argument->isStderr();
             $params['since'] = $argument->getSince();
             $params['until'] = $argument->getUntil();
+            $params['tail'] = $argument->getTail();
         }
 
         $query = $params ? '?' . http_build_query($params) : '';
@@ -171,6 +176,42 @@ class Containers extends Common
 
         if ($response->getHttpCode() !== 204) {
             throw new StartException($response->getData());
+        }
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws CurlException
+     * @throws StartException
+     */
+    public function wait(string $name) : void
+    {
+        $request = $this->makePostRequest();
+        $request->setUrl(self::URL . 'containers/' . $name . '/wait');
+
+        $response = $this->curl->call($request);
+
+        if ($response->getHttpCode() !== 200) {
+            throw new WaitException($response->getData());
+        }
+    }
+
+    /**
+     * @param string $name
+     *
+     * @throws CurlException
+     * @throws StartException
+     */
+    public function remove(string $name) : void
+    {
+        $request = $this->makeDeleteRequest();
+        $request->setUrl(self::URL . 'containers/' . $name);
+
+        $response = $this->curl->call($request);
+
+        if ($response->getHttpCode() !== 204) {
+            throw new RemoveException($response->getData());
         }
     }
 }
