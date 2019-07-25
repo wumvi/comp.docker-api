@@ -8,12 +8,14 @@ class Arguments
     private $stdIn;
     private $stdOut;
     private $stdErr;
+    private $tty;
 
-    public function __construct(bool $stdIn = false, bool $stdOut = true, bool $stdErr = true)
+    public function __construct(bool $stdIn = false, bool $stdOut = true, bool $stdErr = true, $tty = false)
     {
         $this->stdIn = $stdIn;
         $this->stdOut = $stdOut;
         $this->stdErr = $stdErr;
+        $this->tty = $tty;
     }
 
     /**
@@ -38,5 +40,13 @@ class Arguments
     public function isStdErr(): bool
     {
         return $this->stdErr;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTty(): bool
+    {
+        return $this->tty;
     }
 }
