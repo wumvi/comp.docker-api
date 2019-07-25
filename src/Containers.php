@@ -183,7 +183,7 @@ class Containers extends Common
      * @param string $name
      *
      * @throws CurlException
-     * @throws StartException
+     * @throws WaitException
      */
     public function wait(string $name) : void
     {
@@ -201,7 +201,7 @@ class Containers extends Common
      * @param string $name
      *
      * @throws CurlException
-     * @throws StartException
+     * @throws RemoveException
      */
     public function remove(string $name) : void
     {
