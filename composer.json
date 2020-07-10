@@ -6,6 +6,7 @@
       "DockerApi\\": "src"
     }
   },
+  "license": "GPL-3.0-or-later",
   "require": {
     "wumvi/lightweight-curl": "^1.0.22"
   },
